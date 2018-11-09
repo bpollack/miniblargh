@@ -1,17 +1,28 @@
 plugins {
+    id 'application'
     id 'java'
 
+    id 'com.github.johnrengelman.shadow' version '4.0.2'
     id "org.jetbrains.kotlin.jvm" version "1.3.0"
     id "com.github.ben-manes.versions" version "0.20.0"
 }
 
-group 'com.bitquabit'
+group 'com.bitquabit.miniblargh'
 version '1.0-SNAPSHOT'
 
 dependencies {
     compile 'io.javalin:javalin:2.4.0'
     compile 'org.slf4j:slf4j-simple:1.7.25'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.0'
+}
+
+
+mainClassName = 'com.bitquabit.miniblargh.Miniblargh'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.bitquabit.miniblargh.Miniblargh'
+    }
 }
 
 compileKotlin {
